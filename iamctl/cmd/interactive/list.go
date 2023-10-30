@@ -127,7 +127,7 @@ func getList() {
 
 	SERVER, CLIENTID, CLIENTSECRET, TENANTDOMAIN = utils.ReadSPConfig()
 
-	var GETLISTURL = SERVER + "/t/" + TENANTDOMAIN + "/api/server/v1/applications"
+	var GETLISTURL = SERVER + "/t/" + TENANTDOMAIN + "/api/server/v1/applications?offset=0&limit=50"
 	var status int
 	var list List
 	var app Application
