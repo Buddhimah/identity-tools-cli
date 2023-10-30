@@ -286,6 +286,11 @@ func getResourceBaseUrl(resourceType string) string {
 	return SERVER_CONFIGS.ServerUrl + "/t/" + SERVER_CONFIGS.TenantDomain + "/api/server/v1/" + getResourcePath(resourceType) + "/"
 }
 
+func getResourceBaseUrlNew(resourceType string) string {
+
+	return SERVER_CONFIGS.ServerUrl + "/t/" + SERVER_CONFIGS.TenantDomain + "/api/server/v1/" + getResourcePath(resourceType) + "?offset=0&limit=50"
+}
+
 func buildRequestUrl(requestType, resourceType, resourceId string) (reqUrl string) {
 
 	switch requestType {
@@ -304,7 +309,7 @@ func buildRequestUrl(requestType, resourceType, resourceId string) (reqUrl strin
 			reqUrl = getResourceBaseUrl(resourceType) + resourceId + "/" + IMPORT
 		}
 	case LIST:
-		reqUrl = getResourceBaseUrl(resourceType)
+		reqUrl = getResourceBaseUrlNew(resourceType)
 	case DELETE:
 		reqUrl = getResourceBaseUrl(resourceType) + resourceId
 	}
